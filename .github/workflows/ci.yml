@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Atualizado para v3
 
     - name: Set up JDK 11
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3  # Atualizado para v3
       with:
         java-version: '11'
 
@@ -27,7 +27,7 @@ jobs:
     - name: Run tests
       run: mvn test
 
-    # Atualização para a versão v3 do upload-artifact
+    # Arquivar os resultados dos testes
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v3
@@ -41,7 +41,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Atualizado para v3
 
     - name: Deploy to Kubernetes
       env:
