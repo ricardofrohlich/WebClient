@@ -19,7 +19,7 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v3  # Atualizado para v3
       with:
-        distribution: 'temurin'
+        distribution: 'temurin'  # Certifique-se de que está correto
         java-version: '11'
 
     - name: Build with Maven
@@ -28,7 +28,7 @@ jobs:
     - name: Run tests
       run: mvn test
 
-    # Opcional: Remover essa seção se não tiver testes ou se não quiser gerar artefatos de teste
+    # Opcional: Remover essa seção se não houver testes
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v3
