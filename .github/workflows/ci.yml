@@ -28,7 +28,13 @@ jobs:
     - name: Run tests
       run: mvn test
 
-    # Opcional: Remover essa seção se não houver testes
+    - name: Verify test reports directory exists
+      run: |
+        if [ ! -d "target/surefire-reports" ]; then
+          echo "Test reports directory does not exist."
+          exit 1
+        fi
+
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v3
